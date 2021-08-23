@@ -1,0 +1,9 @@
+if not post.metadata.password or request.form.password|string == post.metadata.password|string
+	post.content
+else
+	include include/password_form
+    
+	if request.form.password|string
+		.password_block
+			p
+			strong 输入错误，请重试。

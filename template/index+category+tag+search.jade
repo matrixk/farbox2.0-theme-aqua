@@ -1,0 +1,63 @@
+html
+	head
+		block title
+			if site.sub_title
+				title= site.title + ' - ' + site.sub_title
+			else
+				title= site.title
+		+h.headers
+		meta(name='color-scheme', content='light dark')
+		+h.load('/template/style.scss')
+		+h.load("font")
+		+h.load('jquery')
+		link(rel='icon', type='image/png', href='https://i.loli.net/2021/07/02/QGRt2VoM3mzNpY8.png')
+		link(href='https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,600|Source+Code+Pro:200&display=swap', rel='stylesheet')
+
+	body
+		header
+			a(href="/").site_title_box
+				block web_title
+					span.site_title= site.title
+			.site_nav_box
+				+site.just_nav
+		#post_main
+			#article
+				block main
+					if request.path.startswith('/category/') or request.path.startswith('/tag/')
+						span.tag_return= '「' + request.get_offset_path(1) + '」' + '下的文章'
+					elif request.args.s
+						span.tag_return= '「' + request.args.s + '」' + '搜索到的文章'
+					ul.article_list
+						for post in posts
+							li.article_item
+								a.article_item_title(href=post.url)= post.title
+								.article_item_summary
+									if post.metadata.summary
+										span= post.metadata.summary
+									else
+										span= post.content.limit(150).no_pic.plain
+								.article_item_meta
+									if post.category
+										a(href=post.category.url).article_item_category= post.category.title
+									if post.tags
+										.article_item_tagbox
+											for tag in post.tags
+												a(href='/tag/{{tag}}').article_item_tags= tag
+												span.dash= '/'
+											time(datetime= post.date.format('%Y-%m-%d')).article_item_tags= post.date.format('%b %d, %Y')
+					#pager
+						+h.paginator(style='mini')
+				+h.back_to_top(label='△')
+
+		footer
+			.footer_box
+				#announce
+					span.special= "「" + site.sub_title + "」"
+					span= '同人女没有休班日！'
+					span= 'アサルトリリィ / マギレコ / EVA / 津港三部曲 / 花帰葬'
+				#footer_credit
+					span= 'Powered by '
+					a(href='https://farbox.org', target='_blank')= 'FarBox 2.0'
+					span= '&#169;'
+					span= site.now.year
+					a(href='/')= 'YukiHane'
