@@ -583,7 +583,7 @@ footer {
     figure {
         text-indent: 0;
         margin: 0;
-        box-shadow: $light-grey 0 0 5px;
+        box-shadow: $sec-color 0 0 5px;
         border-radius: 20px;
         img {
             max-width: 100%;
@@ -1003,7 +1003,7 @@ iframe {
             }
         }
         figure {
-            box-shadow: $grey 0 0 5px;
+            box-shadow: $sec-color 0 0 5px;
             img {
                 filter: brightness(60%);
                 -webkit-transition: $transition;
