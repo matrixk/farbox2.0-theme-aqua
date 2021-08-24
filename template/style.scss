@@ -977,7 +977,8 @@ iframe {
     #post {
         .warning {
             color: #ffffff;
-            background: darken($sec-color, 70%);
+            background: unset;
+            border: $sec-color 3px dashed;
         }
         h1, h3, h4, h5, h6 {
             &::before {
@@ -1010,20 +1011,6 @@ iframe {
                 transition: $transition;
                 &:hover {
                   filter: brightness(1);
-                }
-            }
-        }
-        .table-overflow {
-            table {
-                thead {
-                    tr {
-                        border-bottom: 2px solid #ffffff;
-                    }
-                }
-                tbody {
-                    tr {
-                        border-top: 1px dashed darken(#ffffff, 10%);
-                     }
                 }
             }
         }
