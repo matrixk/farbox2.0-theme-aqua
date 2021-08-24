@@ -646,17 +646,18 @@ footer {
     #end_tag {
         text-align: center;
         font-size: 1.3em;
-        color: darken(#ffffff, 30%);
-        margin: 1em 0 0.2em 0;
+        color: $sec-color;
+        margin: 2em 0 0.2em 0;
         -webkit-user-select: none;
            -moz-user-select: none;
             -ms-user-select: none;
                 user-select: none;
     }
     #copyright {
-        color: darken(#ffffff, 30%);
+        color: $sec-color;
         text-align: center;
         font-size: 0.8em;
+        margin-bottom: 2em;
         -webkit-user-select: none;
            -moz-user-select: none;
             -ms-user-select: none;
