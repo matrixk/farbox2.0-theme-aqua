@@ -4,7 +4,7 @@ $main-color: #4caf50;
 $sec-color: #a3d6ff;
 $line-height: 2;
 $transition: all 0.5s;
-$font-family: "Noto Serif CJK SC", "Noto Serif SC", "Source Han Serif SC", "Noto Serif CJK",  "Source Han Serif", source-han-serif-sc, sans-serif;
+$font-family: "Noto Serif CJK SC", "Noto Serif SC", "Source Han Serif SC",  "Source Han Serif", "Noto Serif CJK", source-han-serif-sc, sans-serif;
 $font-weight-light: 300;
 $font-weight-medium: 600;
 /* templates for extend */
@@ -506,6 +506,9 @@ footer {
     }
     p.md_block {
         text-indent: 2em;
+        span.md_line {
+            display: block;
+        }
     }
     strong {
         border-bottom: $main-color 1px solid;
@@ -801,6 +804,10 @@ footer {
 a.back_to_top {
     background: unset!important;
     border: $main-color 1px solid;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     span {
         color: $main-color!important;
         transition-duration: .5s;
